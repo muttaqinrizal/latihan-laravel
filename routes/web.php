@@ -63,7 +63,8 @@ Route::prefix('user')->group( function(){
 Route::get('home', 'HomeController@home');
 Route::post('create', 'HomeController@create');
 Route::get('edit/{id}', 'HomeController@edit');
-Route::patch('edit', 'HomeController@update');
+Route::patch('edit/{id}', 'HomeController@update');
+Route::delete('delete/{id}', 'HomeController@delete');
 
 // route resource
 // Route::get('todo', 'TodolistController@index');

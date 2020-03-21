@@ -30,7 +30,11 @@
         <td>{{ $datas->email }}</td>
         <td>
           <a href="{{ url("edit", $datas->id ) }}"><button type="button" class="btn btn-primary">Edit</button></a>
-          <button type="button" class="btn btn-danger">Delete</button>
+          <form action="{{ url('delete', $datas->id) }}" method="post">
+            {{ csrf_field() }}
+            <input type="hidden" name="_method" value="delete">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
         </td>
       </tr>
     @endforeach

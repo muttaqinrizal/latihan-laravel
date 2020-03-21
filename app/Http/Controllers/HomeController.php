@@ -38,9 +38,27 @@ class HomeController extends Controller
         return view('edit', [ 'data' => $data ]);
     }
 
-    public function update(Request $request)
+    public function update($id, Request $request)
     {
+        // $data = Todo::find($id);
+        // $data->email = $request->email;
+        // $data->save();
 
+        $data = Todo::find($id)->update([
+            "email" => $request->email
+        ]);
+
+        return redirect('home');
+    }
+
+    public function delete($id)
+    {
+        // $data = Todo::find($id);
+        // $data->delete();
+
+        $data = Todo::destroy($id);
+
+        return redirect('home');
     }
 
     public function about(){
